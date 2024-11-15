@@ -14,7 +14,10 @@ on:
         required: true
         type: choice
         options:
+          - '23.05.2'
+          - '23.05.3'
           - '23.05.4'
+          - '23.05.5'
       package:
         description: 'Openwrt build package'
         default: 'all'
@@ -69,7 +72,7 @@ jobs:
 
     - name: Prepare Openwrt SDK
       run: |
-        SDK_LINK="https://downloads.openwrt.org/releases/${{ github.event.inputs.version }}/targets/ramips/mt7621/openwrt-sdk-${{ github.event.inputs.version }}-ramips-mt7621_gcc-12.3.0_musl.Linux-x86_64.tar.xz"
+        SDK_LINK="https://downloads.openwrt.org/releases/${{ github.event.inputs.version }}/targets/x86/64/openwrt-sdk-${{ github.event.inputs.version }}-x86-64_gcc-12.3.0_musl.Linux-x86_64.tar.xz"
 
         echo "Download SDK [ $SDK_LINK ]"
         wget -q --show-progress -O appbuilder.tar.xz "$SDK_LINK"
