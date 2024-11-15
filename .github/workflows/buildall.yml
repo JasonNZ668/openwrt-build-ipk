@@ -14,7 +14,7 @@ on:
         required: true
         type: choice
         options:
-          - '23.05.2'
+          - '23.05.4'
       package:
         description: 'Openwrt build package'
         default: 'all'
@@ -29,6 +29,7 @@ on:
           - 'php-script'
           - 'loopshell'
           - 'dae'
+          - 'daed'
 
 env:
   TZ: Asia/Shanghai
