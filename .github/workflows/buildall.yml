@@ -10,7 +10,7 @@ on:
     inputs:
       version:
         description: 'Openwrt build version'
-        default: '23.05.2'
+        default: '23.05.4'
         required: true
         type: choice
         options:
@@ -28,6 +28,7 @@ on:
           - 'v2ray'
           - 'php-script'
           - 'loopshell'
+          - 'dae'
 
 env:
   TZ: Asia/Shanghai
