@@ -100,6 +100,7 @@ jobs:
       run: |
         build_package=""
         if [ "${{ github.event.inputs.package }}" = 'all' ]; then
+          ls packages
           build_package=`ls packages 2>/dev/null`
         else
           build_package="${{ github.event.inputs.package }}"
@@ -107,8 +108,11 @@ jobs:
 
         cd appbuilder
         for pkg in $build_package; do
+          echo "-----------ls packages -----------------"
+          ls -R package/new
           if [ -d "package/new/$pkg" ]; then
             echo "Build Package [ $pkg ]"
+            echo ${{ github.event.inputs.package }}
             if [ "${{ github.event.inputs.package }}" = 'all' ]; then
               make package/new/$pkg/compile -j`LANG=C cat /proc/cpuinfo | grep ^processor | wc -l` >/dev/null 2>&1
             else
